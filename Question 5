@@ -1,0 +1,109 @@
+#include <stdio.h>
+/* Write a C program to check whether a number is prime, Armstrong or perfect number using
+functions. */
+
+int prime(int number)
+// this function finds prime numbers !
+{
+    int loop;
+    int prime = 1;
+
+    for (loop = 2; loop < number; loop++)
+    {
+        if ((number % loop) == 0)
+        {
+            prime = 0;
+        }
+    }
+
+    if (prime == 1)
+        return 1;
+    else
+
+        return 0;
+}
+
+int arm(int number)
+// this function finds armstrong number
+{
+    int count = 0;
+    while (number != 0)
+    {
+        number = number / 10;
+        count++;
+    }
+    int cnt = count;
+    int result = 0;
+    int mul;
+    while (number != 0)
+    {
+        int rem = number % 10;
+        while (cnt != 0)
+        {
+            mul = mul * rem;
+            cnt--;
+        }
+        result = result + mul;
+        cnt = count;
+        number = number / 10;
+        mul = 1;
+    }
+    if (number == result)
+    {
+        return 1;
+    }
+    else
+        return 0;
+}
+
+int pernum (int number){
+    // funtion that finds armstrong number
+    int n;
+    int result = 0;
+    for (int i = 1; i < number; i++)
+    {
+        n= number%i;
+        if(n == 0)
+        {
+            result = result + i;
+        }
+
+    }
+    if (result == number)
+    {
+        return 1;
+    }
+    else return 0;
+}
+
+void main()
+{
+    int n, b, y;
+    printf("enter a number for prime test:\n");
+    scanf("%d", &n);
+    int p = prime(n);
+    if (p == 1)
+        printf("%d is prime number.\n", n);
+    else
+        printf("%d is not a prime number.\n", n);
+
+    printf("enter a number for armstrong test:\n");
+    scanf("%d", &b);
+    int a = arm(b);
+    if (a == 1)
+    {
+        printf("the entered number is an armstrong number\n");
+    }
+    else
+        printf("the entered number is not an armstrong number\n");
+
+    printf("enter a number for perfect test\n");
+    scanf("%d", &y);
+    int x = pernum(y);
+    if (x == 1)
+    {
+        printf("the entered number is a perfect number");
+    }
+    else
+        printf("the entered number is not perfect number");
+}
