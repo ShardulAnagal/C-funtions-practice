@@ -1,0 +1,29 @@
+#include <stdio.h>
+#define PI 3.142
+// Write a C program to find diameter, circumference and area of circle using functions.
+
+int diameter(int a)
+{
+    return 2 * a;
+}
+
+int circumference(int a)
+{
+    return 2 * PI * a;
+}
+
+int area(int a)
+{
+    return PI * a * a;
+}
+
+void main()
+{
+    float r;
+    printf("enter radius of a circle:\n");
+    scanf("%f", &r);
+    int d = diameter(r);
+    int c = circumference(r);
+    int a = area(r);
+    printf("the diameter, circumference and area of circle of given radius is %d, %d, %d resp\n", d, c, a);
+}
